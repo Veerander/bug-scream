@@ -1,0 +1,109 @@
+{
+  "name": "bug-scream",
+  "displayName": "Bug Scream",
+  "description": "Plays a 'Fahhh' sound whenever a new error appears in your code, giving you instant audio feedback while coding",
+  "version": "0.0.1",
+  "publisher": "VeeranderKumar",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/bug-scream"
+  },
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "sound",
+    "audio",
+    "error",
+    "notification",
+    "feedback",
+    "debugging"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "bug-scream.test",
+        "title": "Bug Scream: Test Sound"
+      },
+      {
+        "command": "bug-scream.enable",
+        "title": "Bug Scream: Enable"
+      },
+      {
+        "command": "bug-scream.disable",
+        "title": "Bug Scream: Disable"
+      },
+      {
+        "command": "bug-scream.toggle",
+        "title": "Bug Scream: Toggle On/Off"
+      },
+      {
+        "command": "bug-scream.selectSound",
+        "title": "Bug Scream: Select Sound"
+      },
+      {
+        "command": "bug-scream.setCustomSound",
+        "title": "Bug Scream: Set Custom Sound File"
+      }
+    ],
+    "configuration": {
+      "title": "Bug Scream",
+      "properties": {
+        "bugScream.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable or disable Bug Scream sound notifications"
+        },
+        "bugScream.soundChoice": {
+          "type": "string",
+          "default": "fahhhhh",
+          "enum": ["fahhhhh", "chloo", "eh", "custom"],
+          "enumDescriptions": [
+            "Default 'Fahhh' sound",
+            "Chloo sound",
+            "Eh sound",
+            "Use a custom sound file"
+          ],
+          "description": "Choose which sound to play when an error occurs"
+        },
+        "bugScream.customSoundPath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to a custom sound file (only used when 'Sound Choice' is set to 'custom'). Example: /Users/yourname/sounds/custom.mp3"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@types/vscode": "^1.75.0",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2",
+    "copy-webpack-plugin": "^14.0.0",
+    "eslint": "^9.39.3",
+    "ts-loader": "^9.5.4",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.56.1",
+    "webpack": "^5.105.3",
+    "webpack-cli": "^6.0.1"
+  }
+}
