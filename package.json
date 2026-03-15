@@ -4,10 +4,15 @@
   "description": "Plays a 'Fahhh' sound whenever a new error appears in your code, giving you instant audio feedback while coding",
   "version": "0.0.1",
   "publisher": "VeeranderKumar",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/Veerander/bug-scream"
   },
+  "bugs": {
+    "url": "https://github.com/Veerander/bug-scream/issues"
+  },
+  "homepage": "https://github.com/Veerander/bug-scream#readme",
   "engines": {
     "vscode": "^1.75.0"
   },
